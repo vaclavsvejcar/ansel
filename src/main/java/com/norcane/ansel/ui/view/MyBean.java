@@ -1,4 +1,4 @@
-package com.norcane.ansel.ui.bean;
+package com.norcane.ansel.ui.view;
 
 import org.springframework.stereotype.Component;
 
