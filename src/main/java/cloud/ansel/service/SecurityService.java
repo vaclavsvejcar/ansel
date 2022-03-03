@@ -1,4 +1,4 @@
-package com.norcane.ansel.service;
+package cloud.ansel.service;
 
 public interface SecurityService {
 

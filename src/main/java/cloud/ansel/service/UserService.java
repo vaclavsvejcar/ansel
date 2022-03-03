@@ -1,6 +1,6 @@
-package com.norcane.ansel.service;
+package cloud.ansel.service;
 
-import com.norcane.ansel.model.User;
+import cloud.ansel.model.User;
 
 public interface UserService {
 

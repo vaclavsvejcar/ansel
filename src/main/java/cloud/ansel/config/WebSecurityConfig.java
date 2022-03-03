@@ -1,4 +1,4 @@
-package com.norcane.ansel.config;
+package cloud.ansel.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private static final String STATIC_RESOURCES = "/jakarta.faces.resource/**";
 
     @Autowired
     @Qualifier("userDetailsServiceImpl")
@@ -39,35 +42,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*
-        // require all requests to be authenticated except for the resources
-        http.authorizeRequests()
-            .antMatchers("/jakarta.faces.resource/**")
-            .permitAll().anyRequest().authenticated();
-
-        // login
-        http.formLogin().loginPage("/login.xhtml").permitAll()
-            .failureUrl("/login.xhtml?error=true");
-
-        // logout
-        http.logout().logoutSuccessUrl("/login.xhtml");
-
-
-        // disable CSRF
-        http.csrf().disable();
-         */
-
         http.authorizeRequests()
             .antMatchers("/secured/admin/**", "/secured/view/admin/**").access("hasRole('ROLE_SUPERUSER')")
-            .antMatchers("/dashboard.xhtml").authenticated()
-            .antMatchers("/index.xhtml", "/index.html", "/login.xhtml", "/javax.faces.resources/**").permitAll()
+            .antMatchers("/index.xhtml", "/index.html", "/login.xhtml", STATIC_RESOURCES).permitAll()
+            .antMatchers("/**").authenticated()
             .and()
             .formLogin().loginPage("/login.xhtml")
             .and()
-            .logout().logoutSuccessUrl("/index.xhtml").invalidateHttpSession(true).deleteCookies("JSESSIONID")
+            .logout().logoutSuccessUrl("/login.xhtml").invalidateHttpSession(true).deleteCookies("JSESSIONID")
             .and()
             .exceptionHandling().accessDeniedPage("/error.xhtml")
             .and()
             .csrf().disable();
+    }
+
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers(STATIC_RESOURCES);
     }
 }

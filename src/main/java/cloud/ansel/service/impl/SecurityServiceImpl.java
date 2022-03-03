@@ -1,6 +1,6 @@
-package com.norcane.ansel.service.impl;
+package cloud.ansel.service.impl;
 
-import com.norcane.ansel.service.SecurityService;
+import cloud.ansel.service.SecurityService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

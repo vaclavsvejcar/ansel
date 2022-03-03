@@ -1,7 +1,7 @@
-package com.norcane.ansel.service.impl;
+package cloud.ansel.service.impl;
 
-import com.norcane.ansel.model.User;
-import com.norcane.ansel.repository.UserRepository;
+import cloud.ansel.model.User;
+import cloud.ansel.repository.UserRepository;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,9 +1,9 @@
-package com.norcane.ansel.service.impl;
+package cloud.ansel.service.impl;
 
-import com.norcane.ansel.model.User;
-import com.norcane.ansel.repository.RoleRepository;
-import com.norcane.ansel.repository.UserRepository;
-import com.norcane.ansel.service.UserService;
+import cloud.ansel.model.User;
+import cloud.ansel.repository.RoleRepository;
+import cloud.ansel.repository.UserRepository;
+import cloud.ansel.service.UserService;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

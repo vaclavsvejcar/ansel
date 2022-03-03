@@ -1,7 +1,7 @@
-package com.norcane.ansel.repository;
+package cloud.ansel.repository;
 
 
-import com.norcane.ansel.model.Role;
+import cloud.ansel.model.Role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

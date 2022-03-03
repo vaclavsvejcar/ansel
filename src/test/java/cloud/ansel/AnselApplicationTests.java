@@ -1,4 +1,4 @@
-package com.norcane.ansel;
+package cloud.ansel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

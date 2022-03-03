@@ -1,4 +1,4 @@
-package com.norcane.ansel.web.view;
+package cloud.ansel.web.view;
 
 import org.springframework.stereotype.Component;
 

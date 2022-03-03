@@ -1,6 +1,6 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html">
 
     <div class="layout-topbar">
         <div class="topbar-left">
@@ -105,7 +105,7 @@
                         </li>
                         <li class="menuitem-separator"></li>
                         <li>
-                            <a tabindex="0">
+                            <a tabindex="0" href="#{request.contextPath}/logout">
                                 <i class="pi pi-power-off"></i>
                                 <span>Logout</span>
                             </a>
