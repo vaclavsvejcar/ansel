@@ -3,9 +3,18 @@ spring:
     url: jdbc:postgresql://localhost:5432/ansel
     username: ansel
     password: ansel
+  jpa:
+    properties:
+      jakarta.persistence.schema-generation.scripts.action: create
+      jakarta.persistence.schema-generation.scripts.create-target: scripts/sql/000_gen.sql
+      jakarta.persistence.schema-generation.scripts.create-source: metadata
 
-spring.jpa.properties.jakarta.persistence.schema-generation.scripts.action: create
-spring.jpa.properties.jakarta.persistence.schema-generation.scripts.create-target: scripts/sql/000_gen.sql
-spring.jpa.properties.jakarta.persistence.schema-generation.scripts.create-source: metadata
+joinfaces:
+  jsf:
+    FACELETS_LIBRARIES: /WEB-INF/primefaces-diamond.taglib.xml
+  omnifaces:
+    faces-views-scan-paths: /*.xhtml
+  primefaces:
+    theme: diamond-blue-light
 
-logging.level.org.springframework.security: DEBUG
+server.error.path: /error

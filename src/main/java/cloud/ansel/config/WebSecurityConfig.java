@@ -44,14 +44,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
             .antMatchers("/secured/admin/**", "/secured/view/admin/**").access("hasRole('ROLE_SUPERUSER')")
-            .antMatchers("/index.xhtml", "/index.html", "/login.xhtml", STATIC_RESOURCES).permitAll()
+            .antMatchers("/index", "/login", STATIC_RESOURCES).permitAll()
             .antMatchers("/**").authenticated()
             .and()
-            .formLogin().loginPage("/login.xhtml")
+            .formLogin().loginPage("/login")
             .and()
-            .logout().logoutSuccessUrl("/login.xhtml").invalidateHttpSession(true).deleteCookies("JSESSIONID")
+            .logout().logoutSuccessUrl("/login").invalidateHttpSession(true).deleteCookies("JSESSIONID")
             .and()
-            .exceptionHandling().accessDeniedPage("/error.xhtml")
+            .exceptionHandling().accessDeniedPage("/error")
             .and()
             .csrf().disable();
     }
