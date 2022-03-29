@@ -4,10 +4,13 @@ spring:
     username: ansel
     password: ansel
   jpa:
-    properties:
-      jakarta.persistence.schema-generation.scripts.action: create
-      jakarta.persistence.schema-generation.scripts.create-target: scripts/sql/000_gen.sql
-      jakarta.persistence.schema-generation.scripts.create-source: metadata
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties: {}
+      #jakarta.persistence.schema-generation.scripts.action: create
+      #jakarta.persistence.schema-generation.scripts.create-target: scripts/sql/000_gen.sql
+      #jakarta.persistence.schema-generation.scripts.create-source: metadata
 
 joinfaces:
   jsf:

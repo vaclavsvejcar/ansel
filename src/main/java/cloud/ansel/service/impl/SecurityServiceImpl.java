@@ -1,6 +1,8 @@
 package cloud.ansel.service.impl;
 
+import cloud.ansel.model.User;
 import cloud.ansel.service.SecurityService;
+import cloud.ansel.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SecurityServiceImpl implements SecurityService {
 
@@ -19,12 +23,15 @@ public class SecurityServiceImpl implements SecurityService {
 
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
+    private final UserService userService;
 
     public SecurityServiceImpl(AuthenticationManager authenticationManager,
-                               UserDetailsService userDetailsService) {
+                               UserDetailsService userDetailsService,
+                               UserService userService) {
 
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
+        this.userService = userService;
     }
 
     @Override
@@ -38,5 +45,14 @@ public class SecurityServiceImpl implements SecurityService {
             SecurityContextHolder.getContext().setAuthentication(token);
             logger.debug(String.format("User %s successfully logged in!", username));
         }
+    }
+
+    @Override
+    public Optional<User> loggedInUser() {
+        final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        return auth instanceof UsernamePasswordAuthenticationToken token
+               ? userService.findByEmail(token.getName())
+               : Optional.empty();
     }
 }
