@@ -20,6 +20,10 @@
                         <p:menuitem id="om_dashboard" value="Dashboard" icon="pi pi-home" outcome="/dashboard"/>
                     </p:submenu>
                     <p:separator/>
+                    <p:submenu id="sitebar_user" label="#{msg['sidebar.user']}" icon="pi pi-cog">
+                        <p:menuitem id="sidebar_user_settings" value="#{msg['settings.title']}" icon="pi pi-cog" outcome="/settings"/>
+                    </p:submenu>
+                    <p:separator/>
                     <p:submenu id="om_components" label="UI Kit" icon="pi pi-star-fill">
                         <p:menuitem id="om_formlayout" value="Form Layout" icon="pi pi-id-card" outcome="/formlayout"/>
                         <p:menuitem id="om_input" value="Input" icon="pi pi-check-square" outcome="/input"/>

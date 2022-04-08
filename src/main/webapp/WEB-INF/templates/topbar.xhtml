@@ -88,8 +88,14 @@
                         <li>
                             <a tabindex="0">
                                 <i class="pi pi-cog"></i>
-                                <span>Settings</span>
+                                <span>#{msg['settings.title']}</span>
                             </a>
+                        </li>
+                        <li>
+                            <p:link outcome="/settings" tabindex="0">
+                                <i class="pi pi-cog"/>
+                                <span>#{msg['settings.title']}</span>
+                            </p:link>
                         </li>
                         <li>
                             <a tabindex="0">
@@ -107,7 +113,7 @@
                         <li>
                             <a tabindex="0" href="#{request.contextPath}/logout">
                                 <i class="pi pi-power-off"></i>
-                                <span>Logout</span>
+                                <span>#{msg['logout']}</span>
                             </a>
                         </li>
                     </ul>

@@ -7,6 +7,15 @@
     <application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
         </el-resolver>
+
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>cs</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>locale.messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
     </application>
 
     <component>

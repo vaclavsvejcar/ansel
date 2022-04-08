@@ -1,0 +1,11 @@
+.inline-buttons {
+    display: inline-block;
+}
+
+.viewname {
+    text-transform: uppercase;
+}
+
+li a.ui-link:hover {
+    text-decoration: none;
+}
