@@ -12,9 +12,9 @@
     <ui:define name="content">
         <div class="p-grid">
             <div class="p-col-12 p-md-6">
-                <div class="card ui-fluid">
-                    <h5>#{msg['settings.language.title']}</h5>
-                    <h:form>
+                <h:form id="card-language">
+                    <div class="card ui-fluid">
+                        <h5>#{msg['settings.language.title']}</h5>
                         <div class="p-field p-grid">
                             <p:outputLabel for="selectLocale" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">#{msg['settings.language.language']}</p:outputLabel>
                             <div class="p-col-12 p-md-10">
@@ -24,10 +24,12 @@
                             </div>
                         </div>
                         <div class="inline-buttons">
-                            <p:commandButton value="#{msg['button.save-changes']}" action="#{localeV.saveChanges()}" process="@form" update="@all"/>
+                            <p:commandButton id="card-language-submit" value="#{msg['button.save-changes']}" action="#{localeV.saveChanges()}"
+                                             process="@form" update="@all"/>
                         </div>
-                    </h:form>
-                </div>
+                        <p:blockUI block="card-language" trigger="card-language-submit"/>
+                    </div>
+                </h:form>
             </div>
         </div>
     </ui:define>
