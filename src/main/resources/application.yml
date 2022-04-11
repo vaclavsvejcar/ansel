@@ -14,7 +14,7 @@ spring:
 
 joinfaces:
   jsf:
-    FACELETS_LIBRARIES: /WEB-INF/primefaces-diamond.taglib.xml
+    FACELETS_LIBRARIES: /WEB-INF/primefaces-diamond.taglib.xml;/WEB-INF/ansel.taglib.xml
   omnifaces:
     faces-views-scan-paths: /*.xhtml
   primefaces:

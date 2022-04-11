@@ -1,0 +1,8 @@
+
+.ui-blockui-content > i {
+    color: #FFFFFF;
+}
+
+.ui-blockui-content.ui-shadow {
+    box-shadow: none;
+}

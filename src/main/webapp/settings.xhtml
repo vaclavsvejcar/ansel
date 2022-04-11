@@ -3,6 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:ansel="http://ansel.cloud/facelets"
                 template="/WEB-INF/templates/template.xhtml">
 
     <ui:define name="title">#{msg['settings.title']}</ui:define>
@@ -27,7 +28,7 @@
                             <p:commandButton id="card-language-submit" value="#{msg['button.save-changes']}" action="#{localeV.saveChanges()}"
                                              process="@form" update="@all"/>
                         </div>
-                        <p:blockUI block="card-language" trigger="card-language-submit"/>
+                        <ansel:blockUI block="card-language" trigger="card-language-submit"/>
                     </div>
                 </h:form>
             </div>
