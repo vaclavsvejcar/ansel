@@ -1,17 +1,20 @@
 package cloud.ansel.service.impl;
 
-import cloud.ansel.model.User;
-import cloud.ansel.repository.RoleRepository;
-import cloud.ansel.repository.UserRepository;
-import cloud.ansel.service.UserService;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Optional;
 
+import cloud.ansel.model.User;
+import cloud.ansel.model.enums.Language;
+import cloud.ansel.repository.RoleRepository;
+import cloud.ansel.repository.UserRepository;
+import cloud.ansel.service.UserService;
+
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
@@ -37,5 +40,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void updateLanguage(long userId, Language language) {
+        userRepository.findById(userId).ifPresent(user -> {
+            user.setLanguage(language);
+            userRepository.save(user);
+        });
     }
 }

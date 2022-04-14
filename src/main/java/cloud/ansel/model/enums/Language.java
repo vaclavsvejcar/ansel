@@ -7,11 +7,11 @@ public enum Language {
     ENGLISH_US("English", Locale.ENGLISH),
     CZECH("Čeština", new Locale("cs", "CZ"));
 
-    private final String name;
+    private final String label;
     private final Locale locale;
 
-    Language(String name, Locale locale) {
-        this.name = name;
+    Language(String label, Locale locale) {
+        this.label = label;
         this.locale = locale;
     }
 
@@ -19,8 +19,8 @@ public enum Language {
         return ENGLISH_US;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
     public Locale getLocale() {

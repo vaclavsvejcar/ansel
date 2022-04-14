@@ -2,8 +2,11 @@ package cloud.ansel.model;
 
 import java.util.Set;
 
+import cloud.ansel.model.enums.Language;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,6 +34,9 @@ public class User {
 
     @Column(name = "last_name", length = 50)
     private String lastName;
+
+    @Enumerated(EnumType.STRING)
+    private Language language;
 
     @ManyToMany
     @JoinTable(name = "a_user_role",
@@ -76,6 +82,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public Set<Role> getRoles() {

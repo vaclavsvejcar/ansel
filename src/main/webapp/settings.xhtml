@@ -17,10 +17,12 @@
                     <div class="card ui-fluid">
                         <h5>#{msg['settings.language.title']}</h5>
                         <div class="p-field p-grid">
-                            <p:outputLabel for="selectLanguage" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">#{msg['settings.language.language']}</p:outputLabel>
+                            <p:outputLabel for="selectLanguage"
+                                           styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">#{msg['settings.language.language']}</p:outputLabel>
                             <div class="p-col-12 p-md-10">
-                                <p:selectOneMenu id="selectLanguage" value="#{localeV.selectedLanguage}" converter="#{languageConverter}">
-                                    <f:selectItems value="#{localeV.availableLanguages}" var="language" itemLabel="#{language.name}"/>
+                                <p:selectOneMenu id="selectLanguage" value="#{localeV.selectedLanguage}">
+                                    <f:selectItems value="#{localeV.availableLanguages}" var="language" itemLabel="#{language.label}"
+                                                   itemValue="#{language.name()}"/>
                                 </p:selectOneMenu>
                             </div>
                         </div>
