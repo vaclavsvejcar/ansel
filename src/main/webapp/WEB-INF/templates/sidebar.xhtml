@@ -7,15 +7,21 @@
 
     <div class="layout-sidebar">
         <h:link class="logo" outcome="/dashboard">
-            <p:graphicImage id="app-logo" styleClass="logo-image"
+            <!--<p:graphicImage id="app-logo" styleClass="logo-image"
                             name="images/#{guestPreferences.logoColor eq 'white' ? 'logo-white.svg' : 'logo-dark.svg'}"
-                            library="diamond-layout"/>
+                            library="diamond-layout"/>-->
+            <p:graphicImage id="app-logo" styleClass="logo-image"
+                            name="ansel-logo-light.png" library="images"/>
             <span class="app-name">#{vendorV.appName}</span>
         </h:link>
 
         <div class="layout-menu-container">
             <h:form id="sidebar-form">
                 <d:menu widgetVar="diamondMenuWidget">
+                    <p:submenu id="sidebar_portfolio" label="#{msg['sidebar.portfolio']}" icon="pi pi-cog">
+                        <p:menuitem id="sidebar_portfolio_films" value="#{msg['films.title']}" icon="fa fa-film" outcome="/films"/>
+                        <p:menuitem id="sidebar_portfolio_prints" value="#{msg['prints.title']}" icon="fa fa-photo-film" outcome="/prints"/>
+                    </p:submenu>
                     <p:separator/>
                     <p:submenu id="sitebar_user" label="#{msg['sidebar.user']}" icon="pi pi-cog">
                         <p:menuitem id="sidebar_user_settings" value="#{msg['settings.title']}" icon="pi pi-cog" outcome="/settings"/>

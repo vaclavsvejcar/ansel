@@ -6,8 +6,9 @@
 
     <div class="layout-footer">
         <div class="footer-logo-container">
-            <p:graphicImage id="footer-logo" library="diamond-layout"
-                            name="images/#{guestPreferences.scheme eq 'light' ? 'logo-dark.svg' : 'logo-white.svg'}"/>
+            <!--<p:graphicImage id="footer-logo" library="diamond-layout"
+                            name="images/#{guestPreferences.scheme eq 'light' ? 'logo-dark.svg' : 'logo-white.svg'}"/>-->
+            <p:graphicImage id="footer-logo" name="ansel-logo-dark.png" library="images"/>
             <span class="app-name">#{vendorV.appName}</span>
         </div>
         <h:outputText styleClass="copyright" value="#{vendorV.copyright}"/>
