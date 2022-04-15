@@ -9,3 +9,8 @@
 li a.ui-link:hover {
     text-decoration: none;
 }
+
+.layout-footer .app-name,
+.layout-sidebar .app-name {
+    text-transform: uppercase;
+}
